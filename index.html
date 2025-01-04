@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FILTER</title>
 </head>
 <body>
+    <input type ="text" id ="search" placeholder="search"/> 
+    <div id ="students-container">
+    
+    </div>
+    <script>
+        const student = [
+            "mansi",
+            "pooja",
+            "sakshi",
+            "vidya",
+            "vrushali",
+            "shubham",
+            "aditya",
+            "sattyajit",
+        ]
+
+        const studentsContainer = document.getElementById('student-container');
+       
+        students.forEach((stud)=>{
+        studentsContainer.innerHTML += `<div class= 'student-card'>${stud}</div>`
+        })
+    </script>
     
 </body>
 </html>
