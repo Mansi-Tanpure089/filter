@@ -4,30 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FILTER</title>
+    <style>
+        .student-card{
+            background-color: antiquewhite;
+            margin: 5px 5px;
+            padding:2px;
+            
+        }
+
+        .search-container{
+            padding: 30px;
+        }
+
+        .heading{
+            text-align: center;
+        }
+
+       
+    </style>
+    
 </head>
 <body>
-    <input type ="text" id ="search" placeholder="search"/> 
-    <div id ="students-container">
-    
+    <div class ="heading">
+    <h1>Students</h1>
     </div>
-    <script>
-        const student = [
-            "mansi",
-            "pooja",
-            "sakshi",
-            "vidya",
-            "vrushali",
-            "shubham",
-            "aditya",
-            "sattyajit",
-        ]
+    <div class="search-container">
+        
+        <input type="text" id="search" placeholder="Search for Students" onkeyup="loadSearchResult()">
+        </div>
+        <div id = "students-container">
+    </div>
 
-        const studentsContainer = document.getElementById('student-container');
-       
-        students.forEach((stud)=>{
-        studentsContainer.innerHTML += `<div class= 'student-card'>${stud}</div>`
-        })
+    <script>
+        const students = [
+            "Mansi",
+            "shubham",
+            "Pooja",
+            "Pallavi",
+            "sattyajit",
+            "Aditya",
+            "satvik",
+            "Rohit",
+            
+        ];
+
+        const studentsContainer = document.getElementById('students-container');
+
+        students.forEach((stud) => {
+            studentsContainer.innerHTML += `
+                <div class='student-card'> ${stud}
+                </div>`;
+        });
+
+        function loadSearchResult() {
+            const searchText = document.getElementById('search').value.toLowerCase();
+            studentsContainer.innerHTML = "";
+
+            const filteredStudents = students.filter((stud) =>
+                stud.toLowerCase().includes(searchText)
+            );
+
+            filteredStudents.forEach((stud) => {
+                studentsContainer.innerHTML += `
+                    <div class='student-card'>
+                     ${stud}
+                    </div>`;
+            });
+        }
     </script>
-    
 </body>
 </html>
